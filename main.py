@@ -6,7 +6,8 @@ import time
 import sys
 import getopt
 import re
-
+import filecmp
+from datetime import datetime
 from pprint import pprint
 
 from googleapiclient.discovery import build
@@ -125,22 +126,28 @@ def main(argv):
     l = len(replay_file_ids)
     printProgressBar(0, l, prefix='Progress:',
                      suffix='Complete', length=50)
+
     replays = []
     for i, file in enumerate(replay_file_ids):
-        replay_bytes = service.files().get_media(
-            fileId=file['id']).execute()
-        replay = io.BytesIO(replay_bytes)
+        replay = io.BytesIO(service.files().get_media(
+            fileId=file['id']).execute())
         printProgressBar(i + 1, l, prefix='Loading Replays:',
                          suffix='Complete', length=50)
-        replays.append(sc2reader.load_replay(replay))
+        replay_object = sc2reader.load_replay(replay)
+        if replay_exists(replay_object.unix_timestamp, map(lambda x: x.unix_timestamp, replays)):
+            print(f"deleting file {replay_object.map_name}")
+            # service.files().delete(fileId=file['id']).execute()
+            continue
+        replays.append(replay_object)
 
     replays = sorted(replays, key=lambda x: x.unix_timestamp)
 
     history = []
     for replay in replays:
+        pprint(
+            f"Date: {datetime.utcfromtimestamp(replay.unix_timestamp).strftime('%Y-%m-%d %H:%M:%S')}")
         rating_groups = []
-        pprint(f"Teams: {replay.teams}")
-        if len(replay.teams[0].players) is 0 or len(replay.teams[1].players) is 0 or (len(replay.teams) is 2 and len(replay.teams[0].players) is 1 and len(replay.teams[1].players) is 1 and (not replay.teams[0].players[0].is_human or not replay.teams[1].players[0].is_human)):
+        if len(replay.teams) is 1 or len(replay.teams[0].players) is 0 or len(replay.teams[1].players) is 0 or (len(replay.teams) is 2 and len(replay.teams[0].players) is 1 and len(replay.teams[1].players) is 1 and (not replay.teams[0].players[0].is_human or not replay.teams[1].players[0].is_human)):
             continue
         for team in replay.teams:
             ratings_group = {}
@@ -157,8 +164,10 @@ def main(argv):
                 rating_groups.insert(0, ratings_group)
             else:
                 rating_groups.append(ratings_group)
-
-        rated_rating_groups = rate(rating_groups)
+        if len(ratings_group) > 1:
+            rated_rating_groups = rate(rating_groups)
+        else:
+            continue
         for i, team in enumerate(rated_rating_groups):
             pprint(f"i: {i}, team: {team}")
             for player, rating in team.items():
@@ -173,7 +182,14 @@ def main(argv):
         pprint(rated_rating_groups)
 
 
-def graph_history(self, history):
+def replay_exists(replay, replays):
+    for r in replays:
+        if r == replay:
+            return True
+    return False
+
+
+def graph_history(history):
     x = np.linspace(1, len(history), 1)
     fig, ax = plt.subplots()
     for player in players:
