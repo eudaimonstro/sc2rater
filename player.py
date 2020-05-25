@@ -1,10 +1,10 @@
-from trueskill import Rating, rate, rate_1vs1, quality_1vs1
+from stats import Stats
 
 
 class Player():
 
     def __init__(self, name):
         self.name = name
-        self.terran = Rating()
-        self.protoss = Rating()
-        self.zerg = Rating()
+        self.terran = Stats()
+        self.protoss = Stats()
+        self.zerg = Stats()

@@ -8,6 +8,11 @@ import sys
 import getopt
 import re
 import filecmp
+import glob
+import csv
+import itertools
+
+from operator import itemgetter, attrgetter
 from datetime import datetime
 from pprint import pprint
 
@@ -28,6 +33,47 @@ from player import Player
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
+steve = Player("steve")
+ryan_s = Player("ryan_s")
+kevin = Player("kevin")
+stephen = Player("stephen")
+laura = Player("laura")
+j = Player("j")
+colin = Player("colin")
+bo = Player("bo")
+george = Player("george")
+ryan_k = Player("ryan_k")
+ai_very_easy = Player("ai very easy")
+ai_easy = Player("ai easy")
+ai_medium = Player("ai medium")
+ai_hard = Player("ai hard")
+ai_harder = Player("ai harder")
+ai_very_hard = Player("ai very hard")
+ai_elite = Player("ai elite")
+ai_insane = Player("ai insane")
+
+players = {
+    "PRhumperdink": bo,
+    "OldSock": kevin,
+    "RyGuyChiGuy": ryan_s,
+    "Rowsdower": stephen,
+    "EggshellJoe": j,
+    "CouchSixNine": steve,
+    "GrandQuizzer": steve,
+    "cdudeRising": colin,
+    "coldpockets": laura,
+    "FlankRight": george,
+    "RedOrm": ryan_k,
+    "A.I. (Very Easy)": ai_very_easy,
+    "A.I. (Easy)": ai_easy,
+    "A.I. (Medium)": ai_medium,
+    "A.I. (Hard)": ai_hard,
+    "A.I. (Harder)": ai_harder,
+    "A.I. (Very Hard)": ai_very_hard,
+    "A.I. (Elite)": ai_elite,
+    "A.I. (Insane)": ai_insane
+}
+
 
 def main(argv):
     test_flag = False
@@ -36,183 +82,131 @@ def main(argv):
         -h help: Help (display this message)
         -t test: Run a test on a single replay"
         """
-    try:
-        opts, args = getopt.getopt(argv, "ht", ["help", "test"])
-    except getopt.GetoptError:
-        print(help_message)
-        sys.exit(2)
 
-    for opt, arg in opts:
-        if opt == '-h':
-            print("Available options are:\n\t-h help: Help (display this message)\n\t-t test: Run a test on a single replay")
-            sys.exit()
-        elif opt in ("-t"):
-            test_flag = True
-    creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
-            creds = pickle.load(token)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
-            pickle.dump(creds, token)
+    sc2reader.configure(
+        depth=1
+    )
 
-    service = build('drive', 'v3', credentials=creds)
-
-    steve = Player("steve")
-    ryan = Player("ryan")
-    kevin = Player("kevin")
-    stephen = Player("stephen")
-    laura = Player("laura")
-    j = Player("j")
-    colin = Player("colin")
-    bo = Player("bo")
-    george = Player("george")
-    ai_very_easy = Player("ai very easy")
-    ai_easy = Player("ai easy")
-    ai_medium = Player("ai medium")
-    ai_hard = Player("ai hard")
-    ai_harder = Player("ai harder")
-    ai_very_hard = Player("ai very hard")
-    ai_elite = Player("ai elite")
-    ai_insane = Player("ai insane")
-
-    players = {
-        "PRhumperdink": bo,
-        "OldSock": kevin,
-        "RyGuyChiGuy": ryan,
-        "Rowsdower": stephen,
-        "EggshellJoe": j,
-        "CouchSixNine": steve,
-        "GrandQuizzer": steve,
-        "cdudeRising": colin,
-        "coldpockets": laura,
-        "FlankRight": george,
-        "A.I. (Very Easy)": ai_very_easy,
-        "A.I. (Easy)": ai_easy,
-        "A.I. (Medium)": ai_medium,
-        "A.I. (Hard)": ai_hard,
-        "A.I. (Harder)": ai_harder,
-        "A.I. (Very Hard)": ai_very_hard,
-        "A.I. (Elite)": ai_elite,
-        "A.I. (Insane)": ai_insane
-    }
-
-    replay_folder_id = '1ddE90f7JP1YA19l2Reh65s74xV-0mKTP'
-
-    page_token = None
-    replay_file_ids = []
-    while True:
-        response = makeRequestWithExponentialBackoff(service.files().list(
-            q=f"'{replay_folder_id}' in parents",
-            fields="nextPageToken, files(id)",
-            pageToken=page_token))
-        response_list = response['files']
-        if test_flag:
-            response_list = response_list[:10]
-        for f_id in response_list:
-            replay_file_ids.append(f_id)
-        if test_flag:
-            break
-        page_token = response.get('nextPageToken', None)
-        if page_token is None:
-            break
-
-    l = len(replay_file_ids)
-    printProgressBar(0, l, prefix='Progress:',
-                     suffix='Complete', length=50)
-
-    replays = []
-    for i, file in enumerate(replay_file_ids):
-        replay = io.BytesIO(makeRequestWithExponentialBackoff(service.files().get_media(
-            fileId=file['id'])))
-        printProgressBar(i + 1, l, prefix='Loading Replays:',
-                         suffix='Complete', length=50)
-        replay_object = sc2reader.load_replay(replay)
-        if replay_exists(replay_object.unix_timestamp, map(lambda x: x.unix_timestamp, replays)):
-            # service.files().delete(fileId=file['id']).execute()
-            continue
-        replays.append(replay_object)
-
-    replays = sorted(replays, key=lambda x: x.unix_timestamp)
+    replays = sc2reader.load_replays(
+        '/home/steve/starcraft_replays', load_level=2)
 
     history = {
         "steve": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
-        "ryan": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+        "ryan_s": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "kevin": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "stephen": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "laura": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "j": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "colin": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "bo": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         },
         "george": {
-            "protoss": [25.0],
-            "terran": [25.0],
-            "zerg": [25.0]
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ryan_k": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_very_easy": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_easy": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_medium": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_hard": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_harder": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_very_hard": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_elite": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
+        },
+        "ai_insane": {
+            "protoss": [],
+            "terran": [],
+            "zerg": []
         }
     }
 
     valid_replay_length = 0
 
-    for replay in replays:
+    sorted_replays = sorted(replays, key=attrgetter('unix_timestamp'))
+
+    for replay in sorted_replays:
         pprint(
             f"Date: {datetime.utcfromtimestamp(replay.unix_timestamp).strftime('%Y-%m-%d %H:%M:%S')}")
         pprint(f"Teams: {replay.teams}")
+        if replay.winner is None:
+            pprint("No winner found?")
+            continue
         pprint(f"Winner: {replay.winner.players}")
         rating_groups = []
-        if has_computers_on_one_team(replay) or len(replay.teams) is 1 or len(replay.teams[0].players) is 0 or len(replay.teams[1].players) is 0 or (len(replay.teams) is 2 and len(replay.teams[0].players) is 1 and len(replay.teams[1].players) is 1 and (not replay.teams[0].players[0].is_human or not replay.teams[1].players[0].is_human)):
+        if not check_if_valid_teams(replay):
             continue
         for team in replay.teams:
             ratings_group = {}
             for p in team.players:
                 if p.is_human and p.name in players:
                     ratings_group[p] = getattr(
-                        players[p.name], p.play_race.lower())
+                        players[p.name], p.play_race.lower()).current_trueskill
                 elif not p.is_human:
                     ratings_group[p] = getattr(
-                        players[f"A.I. ({p.difficulty})"], p.play_race.lower())
+                        players[f"A.I. ({p.difficulty})"], p.play_race.lower()).current_trueskill
                 else:
                     break
             if team.result == 'Win':
@@ -227,18 +221,19 @@ def main(argv):
         for i, team in enumerate(rated_rating_groups):
             for player, rating in team.items():
                 if player.is_human:
-                    setattr(players[player.name],
-                            player.play_race.lower(), rating)
+                    player_race = getattr(
+                        players[player.name], player.play_race.lower())
                 else:
-                    setattr(players[f"A.I. ({player.difficulty})"],
-                            player.play_race.lower(), rating)
+                    player_race = getattr(players[f"A.I. ({player.difficulty})"],
+                                          player.play_race.lower())
+                player_race.current_trueskill = rating
 
         history["steve"]["protoss"].append(steve.protoss)
         history["steve"]["terran"].append(steve.terran)
         history["steve"]["zerg"].append(steve.zerg)
-        history["ryan"]["protoss"].append(ryan.protoss)
-        history["ryan"]["terran"].append(ryan.terran)
-        history["ryan"]["zerg"].append(ryan.zerg)
+        history["ryan_s"]["protoss"].append(ryan_s.protoss)
+        history["ryan_s"]["terran"].append(ryan_s.terran)
+        history["ryan_s"]["zerg"].append(ryan_s.zerg)
         history["kevin"]["protoss"].append(kevin.protoss)
         history["kevin"]["terran"].append(kevin.terran)
         history["kevin"]["zerg"].append(kevin.zerg)
@@ -260,79 +255,147 @@ def main(argv):
         history["george"]["protoss"].append(george.protoss)
         history["george"]["terran"].append(george.terran)
         history["george"]["zerg"].append(george.zerg)
+        history["ryan_k"]["protoss"].append(ryan_k.protoss)
+        history["ryan_k"]["terran"].append(ryan_k.terran)
+        history["ryan_k"]["zerg"].append(ryan_k.zerg)
+        history["ai_very_easy"]["protoss"].append(ai_very_easy.protoss)
+        history["ai_very_easy"]["terran"].append(ai_very_easy.terran)
+        history["ai_very_easy"]["zerg"].append(ai_very_easy.zerg)
+        history["ai_easy"]["protoss"].append(ai_easy.protoss)
+        history["ai_easy"]["terran"].append(ai_easy.terran)
+        history["ai_easy"]["zerg"].append(ai_easy.zerg)
+        history["ai_medium"]["protoss"].append(ai_medium.protoss)
+        history["ai_medium"]["terran"].append(ai_medium.terran)
+        history["ai_medium"]["zerg"].append(ai_medium.zerg)
+        history["ai_hard"]["protoss"].append(ai_hard.protoss)
+        history["ai_hard"]["terran"].append(ai_hard.terran)
+        history["ai_hard"]["zerg"].append(ai_hard.zerg)
+        history["ai_harder"]["protoss"].append(ai_harder.protoss)
+        history["ai_harder"]["terran"].append(ai_harder.terran)
+        history["ai_harder"]["zerg"].append(ai_harder.zerg)
+        history["ai_very_hard"]["protoss"].append(ai_very_hard.protoss)
+        history["ai_very_hard"]["terran"].append(ai_very_hard.terran)
+        history["ai_very_hard"]["zerg"].append(ai_very_hard.zerg)
+        history["ai_elite"]["protoss"].append(ai_elite.protoss)
+        history["ai_elite"]["terran"].append(ai_elite.terran)
+        history["ai_elite"]["zerg"].append(ai_elite.zerg)
+        history["ai_insane"]["protoss"].append(ai_insane.protoss)
+        history["ai_insane"]["terran"].append(ai_insane.terran)
+        history["ai_insane"]["zerg"].append(ai_insane.zerg)
 
-    x = np.linspace(0, valid_replay_length, 1)
-    fig, ax = plt.subplots()
+    for player in history:
+        ax_num = 0
+        fig = plt.figure(figsize=(12, 12))
+        for race in ["protoss", "terran", "zerg"]:
+            ax_num += 1
+            ax = fig.add_subplot(3, 1, ax_num)
+            ax.set(xlim=(1, valid_replay_length + 1), ylim=(0, 50))
+            ax.set_ylabel('TrueSkill')
+            ax.plot(range(0, valid_replay_length),
+                    list(map(lambda x: x.current_trueskill, history[player][race])), label=f"{player} as {race}")
+            ax.set_title(f"{player} as {race}")
+            pprint(
+                f"{player} as {race} TrueSkill mu: {round(history[player][race][-1].current_trueskill.mu, 2)}, sigma: {round(history[player][race][-1].current_trueskill.sigma, 2)}")
+        fig.savefig(f"plots/{player.replace(' ', '_')}")
 
-    pprint(history["steve"]["protoss"])
+    try:
+        opts, args = getopt.getopt(argv, "", ["help",
+                                              "test",
+                                              "steve=",
+                                              "ryan_s=",
+                                              "ryan_k=",
+                                              "colin=",
+                                              "bo=",
+                                              "j=",
+                                              "laura=",
+                                              "kevin=",
+                                              "stephen=",
+                                              "george="
+                                              ])
+    except getopt.GetoptError:
+        print(help_message)
+        sys.exit(2)
 
-    ax.plot(range(0, len(history["steve"]["protoss"])),
-            history["steve"]["protoss"], label="steve protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["steve"]["terran"], label="steve terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["steve"]["zerg"], label="steve zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["ryan"]["protoss"], label="ryan protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["ryan"]["terran"], label="ryan terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["ryan"]["zerg"], label="ryan zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["kevin"]["protoss"], label="kevin protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["kevin"]["terran"], label="kevin terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["kevin"]["zerg"], label="kevin zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["stephen"]["protoss"], label="stephen protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["stephen"]["terran"], label="stephen terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["stephen"]["zerg"], label="stephen zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["laura"]["protoss"], label="laura protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["laura"]["terran"], label="laura terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["laura"]["zerg"], label="laura zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["j"]["protoss"], label="j protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["j"]["terran"], label="j terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["j"]["zerg"], label="j zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["colin"]["protoss"], label="colin protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["colin"]["terran"], label="colin terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["colin"]["zerg"], label="colin zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["bo"]["protoss"], label="bo protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["bo"]["terran"], label="bo terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["bo"]["zerg"], label="bo zerg")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["george"]["protoss"], label="george protoss")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["george"]["terran"], label="george terran")
-    # ax.plot(len(history["steve"]["protoss"]),
-    #         history["george"]["zerg"], label="george zerg")
+    players_array = []
 
-    ax.legend()
+    for opt, arg in opts:
+        if opt in ("--steve"):
+            player_name = "steve"
+        elif opt in ("--ryan_s"):
+            player_name = "ryan_s"
+        elif opt in ("--ryan_k"):
+            player_name = "ryan_k"
+        elif opt in ("--colin"):
+            player_name = "colin"
+        elif opt in ("--bo"):
+            player_name = "bo"
+        elif opt in ("--j"):
+            player_name = "j"
+        elif opt in ("--laura"):
+            player_name = "laura"
+        elif opt in ("--kevin"):
+            player_name = "kevin"
+        elif opt in ("--stephen"):
+            player_name = "stephen"
+        elif opt in ("--george"):
+            player_name = "george"
+        if arg == "protoss":
+            player_race = "protoss"
+        elif arg == "terran":
+            player_race = "terran"
+        elif arg == "zerg":
+            player_race = "zerg"
+        players_array.append({"name": player_name, "race": player_race, "rating": getattr(
+            globals()[player_name], player_race).current_trueskill})
 
-    fig.savefig("history")
+    total_sum = sum(map(lambda x: x['rating'].mu, players_array))
+    teams = []
+    for i in range(1, len(players_array)):
+        combinations = itertools.combinations(players_array, i)
+        for combo in combinations:
+            for player in combo:
+                print(f"{player['name']} {player['race']}", end=", ")
+            team_1_sum = sum(map(lambda x: x['rating'].mu, combo))
+            print(team_1_sum)
+            team_2_sum = total_sum - team_1_sum
+            difference = team_1_sum - team_2_sum
+            print(f"Difference: {difference}")
+            teams.append({'team': (list(map(lambda x: x['name'], combo)), list(map(
+                lambda x: x['race'], combo))), 'difference': abs(difference)})
+    sorted_teams = sorted(teams, key=lambda x: x['difference'])
+    for i, team in enumerate(sorted_teams):
+        if i % 2 == 0:
+            print(
+                f"Team {int((i / 2) + 1)}: {sorted_teams[i]['team']}, difference: {sorted_teams[i]['difference']}")
 
 
-def has_computers_on_one_team(replay):
+def check_if_valid_teams(replay):
+    if len(replay.teams) == 1:
+        return False
+    if len(replay.teams[0].players) == 0 or len(replay.teams[1].players) == 0:
+        return False
+    if (
+        len(replay.teams) == 2
+        and len(replay.teams[0].players) == 1
+        and len(replay.teams[1].players) == 1
+        and (
+            not replay.teams[0].players[0].is_human
+            or not replay.teams[1].players[0].is_human
+        )
+    ):
+        return False
     for team in replay.teams:
         for player in team.players:
-            if player.is_human:
-                break
-            return True
-    return False
+            if not check_if_player_is_us_or_computer(player):
+                return False
+    return True
+
+
+def check_if_player_is_us_or_computer(player):
+    if player.is_human:
+        return player.name in players
+    else:
+        return True
 
 
 def replay_exists(replay, replays):

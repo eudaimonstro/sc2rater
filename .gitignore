@@ -4,3 +4,555 @@ credentials.json
 token.pickle
 venv/
 history.png
+plots/ai_easy.png
+plots/ai_elite.png
+plots/ai_hard.png
+plots/ai_harder.png
+plots/ai_insane.png
+plots/ai_medium.png
+plots/ai_very_easy.png
+plots/ai_very_hard.png
+plots/bo.png
+plots/colin.png
+plots/george.png
+plots/j.png
+plots/kevin.png
+plots/laura.png
+plots/ryan_k.png
+plots/ryan_s.png
+plots/stephen.png
+plots/steve.png
+records/bo.csv
+records/colin.csv
+records/george.csv
+records/j.csv
+records/kevin.csv
+records/laura.csv
+records/ryan_k.csv
+records/ryan_s.csv
+records/stephen.csv
+records/steve.csv
+starcraft_replays/16-Bit LE (2).SC2Replay
+starcraft_replays/16-Bit LE.SC2Replay
+starcraft_replays/Abandoned Parish.SC2Replay
+starcraft_replays/Abyssal Reef LE (2).SC2Replay
+starcraft_replays/Abyssal Reef LE (3).SC2Replay
+starcraft_replays/Abyssal Reef LE (4).SC2Replay
+starcraft_replays/Abyssal Reef LE.SC2Replay
+starcraft_replays/Acid Plant LE.SC2Replay
+starcraft_replays/Acropolis LE.SC2Replay
+starcraft_replays/Agria Valley (2).SC2Replay
+starcraft_replays/Agria Valley.SC2Replay
+starcraft_replays/Alaeni Enclave (1).SC2Replay
+starcraft_replays/Alaeni Enclave.SC2Replay
+starcraft_replays/Arakan Citadel (1).SC2Replay
+starcraft_replays/Arakan Citadel 2.SC2Replay
+starcraft_replays/Arakan Citadel 3.SC2Replay
+starcraft_replays/Arakan Citadel 4.SC2Replay
+starcraft_replays/Arakan Citadel.SC2Replay
+starcraft_replays/Arctic Dream LE (2).SC2Replay
+starcraft_replays/Arctic Dream LE (3).SC2Replay
+starcraft_replays/Arctic Dream LE (4).SC2Replay
+starcraft_replays/Arctic Dream LE (5).SC2Replay
+starcraft_replays/Arctic Dream LE.SC2Replay
+starcraft_replays/Atlantica Unlimited (1).SC2Replay
+starcraft_replays/Atlantica Unlimited (2).SC2Replay
+starcraft_replays/Atlantica Unlimited (3).SC2Replay
+starcraft_replays/Atlantica Unlimited (4).SC2Replay
+starcraft_replays/Atlantica Unlimited (5).SC2Replay
+starcraft_replays/Atlantica Unlimited 2.SC2Replay
+starcraft_replays/Atlantica Unlimited 3.SC2Replay
+starcraft_replays/Atlantica Unlimited.SC2Replay
+starcraft_replays/Avalanche.SC2Replay
+starcraft_replays/Backwater Gulch (1).SC2Replay
+starcraft_replays/Backwater Gulch.SC2Replay
+starcraft_replays/Black Site 2E (1).SC2Replay
+starcraft_replays/Black Site 2E.SC2Replay
+starcraft_replays/Bone Temple LE (2).SC2Replay
+starcraft_replays/Bone Temple LE.SC2Replay
+starcraft_replays/Buried Caverns (2).SC2Replay
+starcraft_replays/Buried Caverns (3).SC2Replay
+starcraft_replays/Buried Caverns.SC2Replay
+starcraft_replays/Canyon of Tribulation (2).SC2Replay
+starcraft_replays/Canyon of Tribulation (3).SC2Replay
+starcraft_replays/Canyon of Tribulation (4).SC2Replay
+starcraft_replays/Canyon of Tribulation (5).SC2Replay
+starcraft_replays/Canyon of Tribulation.SC2Replay
+starcraft_replays/Catallena LE.SC2Replay
+starcraft_replays/Celestial Bastion.SC2Replay
+starcraft_replays/Cinder Fortress (1).SC2Replay
+starcraft_replays/Cinder Fortress (2).SC2Replay
+starcraft_replays/Cinder Fortress (3).SC2Replay
+starcraft_replays/Cinder Fortress.SC2Replay
+starcraft_replays/Concord LE (1).SC2Replay
+starcraft_replays/Concord LE (3).SC2Replay
+starcraft_replays/Concord LE (4).SC2Replay
+starcraft_replays/Concord LE (5).SC2Replay
+starcraft_replays/Concord LE.SC2Replay
+starcraft_replays/Dirt Side (1).SC2Replay
+starcraft_replays/Dirt Side (2).SC2Replay
+starcraft_replays/Dirt Side 2.SC2Replay
+starcraft_replays/Dirt Side.SC2Replay
+starcraft_replays/Discord IV (1).SC2Replay
+starcraft_replays/Discord IV (2).SC2Replay
+starcraft_replays/Discord IV (3).SC2Replay
+starcraft_replays/Discord IV 2.SC2Replay
+starcraft_replays/Discord IV 3.SC2Replay
+starcraft_replays/Discord IV.SC2Replay
+starcraft_replays/Divergence LE 2.SC2Replay
+starcraft_replays/Divergence LE.SC2Replay
+starcraft_replays/Dusty Gorge (2).SC2Replay
+starcraft_replays/Dusty Gorge (3).SC2Replay
+starcraft_replays/Dusty Gorge (4).SC2Replay
+starcraft_replays/Dusty Gorge.SC2Replay
+starcraft_replays/Efflorescence LE (1).SC2Replay
+starcraft_replays/Efflorescence LE (2).SC2Replay
+starcraft_replays/Efflorescence LE (3).SC2Replay
+starcraft_replays/Efflorescence LE (4).SC2Replay
+starcraft_replays/Efflorescence LE 2.SC2Replay
+starcraft_replays/Efflorescence LE 3.SC2Replay
+starcraft_replays/Efflorescence LE 4.SC2Replay
+starcraft_replays/Efflorescence LE.SC2Replay
+starcraft_replays/Elysium.SC2Replay
+starcraft_replays/Emerald City LE (1).SC2Replay
+starcraft_replays/Emerald City LE (2).SC2Replay
+starcraft_replays/Emerald City LE (3).SC2Replay
+starcraft_replays/Emerald City LE (4).SC2Replay
+starcraft_replays/Emerald City LE (5).SC2Replay
+starcraft_replays/Emerald City LE 2.SC2Replay
+starcraft_replays/Emerald City LE 3.SC2Replay
+starcraft_replays/Emerald City LE 4.SC2Replay
+starcraft_replays/Emerald City LE 5.SC2Replay
+starcraft_replays/Emerald City LE.SC2Replay
+starcraft_replays/Eternal Empire LE (1).SC2Replay
+starcraft_replays/Eternal Empire LE (2).SC2Replay
+starcraft_replays/Eternal Empire LE (3).SC2Replay
+starcraft_replays/Eternal Empire LE (4).SC2Replay
+starcraft_replays/Eternal Empire LE (5).SC2Replay
+starcraft_replays/Eternal Empire LE (6).SC2Replay
+starcraft_replays/Eternal Empire LE (7).SC2Replay
+starcraft_replays/Eternal Empire LE (8).SC2Replay
+starcraft_replays/Eternal Empire LE (9).SC2Replay
+starcraft_replays/Eternal Empire LE (10).SC2Replay
+starcraft_replays/Eternal Empire LE (11).SC2Replay
+starcraft_replays/Eternal Empire LE (12).SC2Replay
+starcraft_replays/Eternal Empire LE (13).SC2Replay
+starcraft_replays/Eternal Empire LE (14).SC2Replay
+starcraft_replays/Eternal Empire LE (15).SC2Replay
+starcraft_replays/Eternal Empire LE (16).SC2Replay
+starcraft_replays/Eternal Empire LE (17).SC2Replay
+starcraft_replays/Eternal Empire LE (18).SC2Replay
+starcraft_replays/Eternal Empire LE (19).SC2Replay
+starcraft_replays/Eternal Empire LE (20).SC2Replay
+starcraft_replays/Eternal Empire LE (21).SC2Replay
+starcraft_replays/Eternal Empire LE (22).SC2Replay
+starcraft_replays/Eternal Empire LE (23).SC2Replay
+starcraft_replays/Eternal Empire LE (24).SC2Replay
+starcraft_replays/Eternal Empire LE (25).SC2Replay
+starcraft_replays/Eternal Empire LE (26).SC2Replay
+starcraft_replays/Eternal Empire LE (27).SC2Replay
+starcraft_replays/Eternal Empire LE (28).SC2Replay
+starcraft_replays/Eternal Empire LE (29).SC2Replay
+starcraft_replays/Eternal Empire LE (30).SC2Replay
+starcraft_replays/Eternal Empire LE (31).SC2Replay
+starcraft_replays/Eternal Empire LE (32).SC2Replay
+starcraft_replays/Eternal Empire LE (33).SC2Replay
+starcraft_replays/Eternal Empire LE (34).SC2Replay
+starcraft_replays/Eternal Empire LE (35).SC2Replay
+starcraft_replays/Eternal Empire LE (36).SC2Replay
+starcraft_replays/Eternal Empire LE (37).SC2Replay
+starcraft_replays/Eternal Empire LE (38).SC2Replay
+starcraft_replays/Eternal Empire LE (39).SC2Replay
+starcraft_replays/Eternal Empire LE (40).SC2Replay
+starcraft_replays/Eternal Empire LE (41).SC2Replay
+starcraft_replays/Eternal Empire LE (42).SC2Replay
+starcraft_replays/Eternal Empire LE (43).SC2Replay
+starcraft_replays/Eternal Empire LE (44).SC2Replay
+starcraft_replays/Eternal Empire LE (45).SC2Replay
+starcraft_replays/Eternal Empire LE (46).SC2Replay
+starcraft_replays/Eternal Empire LE (47).SC2Replay
+starcraft_replays/Eternal Empire LE (48).SC2Replay
+starcraft_replays/Eternal Empire LE (49).SC2Replay
+starcraft_replays/Eternal Empire LE (50).SC2Replay
+starcraft_replays/Eternal Empire LE 2.SC2Replay
+starcraft_replays/Eternal Empire LE 3.SC2Replay
+starcraft_replays/Eternal Empire LE.SC2Replay
+starcraft_replays/Ever Dream LE (1).SC2Replay
+starcraft_replays/Ever Dream LE (2).SC2Replay
+starcraft_replays/Ever Dream LE (3).SC2Replay
+starcraft_replays/Ever Dream LE (4).SC2Replay
+starcraft_replays/Ever Dream LE (5).SC2Replay
+starcraft_replays/Ever Dream LE (6).SC2Replay
+starcraft_replays/Ever Dream LE (7).SC2Replay
+starcraft_replays/Ever Dream LE (8).SC2Replay
+starcraft_replays/Ever Dream LE (9).SC2Replay
+starcraft_replays/Ever Dream LE (10).SC2Replay
+starcraft_replays/Ever Dream LE (11).SC2Replay
+starcraft_replays/Ever Dream LE (12).SC2Replay
+starcraft_replays/Ever Dream LE (13).SC2Replay
+starcraft_replays/Ever Dream LE (14).SC2Replay
+starcraft_replays/Ever Dream LE (15).SC2Replay
+starcraft_replays/Ever Dream LE (16).SC2Replay
+starcraft_replays/Ever Dream LE (17).SC2Replay
+starcraft_replays/Ever Dream LE (18).SC2Replay
+starcraft_replays/Ever Dream LE (19).SC2Replay
+starcraft_replays/Ever Dream LE (20).SC2Replay
+starcraft_replays/Ever Dream LE (21).SC2Replay
+starcraft_replays/Ever Dream LE (22).SC2Replay
+starcraft_replays/Ever Dream LE (23).SC2Replay
+starcraft_replays/Ever Dream LE (24).SC2Replay
+starcraft_replays/Ever Dream LE (25).SC2Replay
+starcraft_replays/Ever Dream LE (26).SC2Replay
+starcraft_replays/Ever Dream LE (27).SC2Replay
+starcraft_replays/Ever Dream LE (28).SC2Replay
+starcraft_replays/Ever Dream LE (29).SC2Replay
+starcraft_replays/Ever Dream LE (30).SC2Replay
+starcraft_replays/Ever Dream LE (31).SC2Replay
+starcraft_replays/Ever Dream LE (32).SC2Replay
+starcraft_replays/Ever Dream LE (33).SC2Replay
+starcraft_replays/Ever Dream LE (34).SC2Replay
+starcraft_replays/Ever Dream LE (35).SC2Replay
+starcraft_replays/Ever Dream LE (36).SC2Replay
+starcraft_replays/Ever Dream LE (37).SC2Replay
+starcraft_replays/Ever Dream LE (38).SC2Replay
+starcraft_replays/Ever Dream LE (39).SC2Replay
+starcraft_replays/Ever Dream LE.SC2Replay
+starcraft_replays/Extinction (1).SC2Replay
+starcraft_replays/Extinction (2).SC2Replay
+starcraft_replays/Extinction (3).SC2Replay
+starcraft_replays/Extinction 5V5 10 (1).SC2Replay
+starcraft_replays/Extinction 5V5 10.SC2Replay
+starcraft_replays/Extinction.SC2Replay
+starcraft_replays/Fastest Monsoon Ever.SC2Replay
+starcraft_replays/Forbidden Planet.SC2Replay
+starcraft_replays/Forgotten Sanctuary (1).SC2Replay
+starcraft_replays/Forgotten Sanctuary.SC2Replay
+starcraft_replays/Fractured Glacier (1).SC2Replay
+starcraft_replays/Fractured Glacier (2).SC2Replay
+starcraft_replays/Fractured Glacier.SC2Replay
+starcraft_replays/Frozen Fields.SC2Replay
+starcraft_replays/Golden Wall LE (2).SC2Replay
+starcraft_replays/Golden Wall LE (3).SC2Replay
+starcraft_replays/Golden Wall LE (4).SC2Replay
+starcraft_replays/Golden Wall LE (5).SC2Replay
+starcraft_replays/Golden Wall LE (6).SC2Replay
+starcraft_replays/Golden Wall LE (7).SC2Replay
+starcraft_replays/Golden Wall LE (8).SC2Replay
+starcraft_replays/Golden Wall LE (9).SC2Replay
+starcraft_replays/Golden Wall LE (10).SC2Replay
+starcraft_replays/Golden Wall LE (11).SC2Replay
+starcraft_replays/Golden Wall LE (12).SC2Replay
+starcraft_replays/Golden Wall LE (13).SC2Replay
+starcraft_replays/Golden Wall LE (14).SC2Replay
+starcraft_replays/Golden Wall LE (15).SC2Replay
+starcraft_replays/Golden Wall LE (16).SC2Replay
+starcraft_replays/Golden Wall LE (17).SC2Replay
+starcraft_replays/Golden Wall LE (18).SC2Replay
+starcraft_replays/Golden Wall LE.SC2Replay
+starcraft_replays/Grand Natural Fortress (1).SC2Replay
+starcraft_replays/Grand Natural Fortress.SC2Replay
+starcraft_replays/Green Acres (1).SC2Replay
+starcraft_replays/Green Acres (2).SC2Replay
+starcraft_replays/Green Acres (3).SC2Replay
+starcraft_replays/Green Acres (4).SC2Replay
+starcraft_replays/Green Acres (5).SC2Replay
+starcraft_replays/Green Acres (6).SC2Replay
+starcraft_replays/Green Acres (7).SC2Replay
+starcraft_replays/Green Acres 2.SC2Replay
+starcraft_replays/Green Acres 3.SC2Replay
+starcraft_replays/Green Acres 4.SC2Replay
+starcraft_replays/Green Acres 5.SC2Replay
+starcraft_replays/Green Acres 6.SC2Replay
+starcraft_replays/Green Acres 7.SC2Replay
+starcraft_replays/Green Acres.SC2Replay
+starcraft_replays/Heavy Artillery LE.SC2Replay
+starcraft_replays/High Orbit (1).SC2Replay
+starcraft_replays/High Orbit 2.SC2Replay
+starcraft_replays/High Orbit 3.SC2Replay
+starcraft_replays/High Orbit.SC2Replay
+starcraft_replays/Honorgrounds LE.SC2Replay
+starcraft_replays/I almost beat somebody good.SC2Replay
+starcraft_replays/Ice Cliffs (1).SC2Replay
+starcraft_replays/Ice Cliffs (2).SC2Replay
+starcraft_replays/Ice Cliffs.SC2Replay
+starcraft_replays/Isle of Slaughter.SC2Replay
+starcraft_replays/Jungle Depths LE.SC2Replay
+starcraft_replays/Katherine Square 2.SC2Replay
+starcraft_replays/Katherine Square 3.SC2Replay
+starcraft_replays/Katherine Square.SC2Replay
+starcraft_replays/Last Impact (1).SC2Replay
+starcraft_replays/Last Impact (2).SC2Replay
+starcraft_replays/Last Impact (3).SC2Replay
+starcraft_replays/Last Impact (5).SC2Replay
+starcraft_replays/Last Impact.SC2Replay
+starcraft_replays/Lost Temple (1).SC2Replay
+starcraft_replays/Lost Temple (2).SC2Replay
+starcraft_replays/Lost Temple.SC2Replay
+starcraft_replays/Lunar Colony V (1).SC2Replay
+starcraft_replays/Lunar Colony V.SC2Replay
+starcraft_replays/Magma Mines.SC2Replay
+starcraft_replays/Mar Sara Wastes (7v7 Melee Map) (1).SC2Replay
+starcraft_replays/Mar Sara Wastes (7v7 Melee Map) (2).SC2Replay
+starcraft_replays/Mar Sara Wastes (7v7 Melee Map) (3).SC2Replay
+starcraft_replays/Mar Sara Wastes (7v7 Melee Map) (4).SC2Replay
+starcraft_replays/Mar Sara Wastes (7v7 Melee Map) (5).SC2Replay
+starcraft_replays/Mar Sara Wastes (7v7 Melee Map).SC2Replay
+starcraft_replays/Mar Sara Wastes 2.SC2Replay
+starcraft_replays/Mar Sara Wastes.SC2Replay
+starcraft_replays/Megaton (1).SC2Replay
+starcraft_replays/Megaton (2).SC2Replay
+starcraft_replays/Megaton (3).SC2Replay
+starcraft_replays/Megaton (4).SC2Replay
+starcraft_replays/Megaton (5).SC2Replay
+starcraft_replays/Megaton (6).SC2Replay
+starcraft_replays/Megaton (7).SC2Replay
+starcraft_replays/Megaton 2.SC2Replay
+starcraft_replays/Megaton 3.SC2Replay
+starcraft_replays/Megaton 4.SC2Replay
+starcraft_replays/Megaton 5.SC2Replay
+starcraft_replays/Megaton BGH (5v5) (1).SC2Replay
+starcraft_replays/Megaton BGH (5v5).SC2Replay
+starcraft_replays/Megaton.SC2Replay
+starcraft_replays/Mementos LE.SC2Replay
+starcraft_replays/Misty Swamp (1).SC2Replay
+starcraft_replays/Misty Swamp (2).SC2Replay
+starcraft_replays/Misty Swamp (3).SC2Replay
+starcraft_replays/Misty Swamp 2.SC2Replay
+starcraft_replays/Misty Swamp 3.SC2Replay
+starcraft_replays/Misty Swamp.SC2Replay
+starcraft_replays/Multiprocessor LE (2).SC2Replay
+starcraft_replays/Multiprocessor LE.SC2Replay
+starcraft_replays/Nekodrec LE (2).SC2Replay
+starcraft_replays/Nekodrec LE (3).SC2Replay
+starcraft_replays/Nekodrec LE (4).SC2Replay
+starcraft_replays/Nekodrec LE.SC2Replay
+starcraft_replays/Neo's Micro Trainer (NeoMT).SC2Replay
+starcraft_replays/Nephor I (2).SC2Replay
+starcraft_replays/Nephor I.SC2Replay
+starcraft_replays/New Williamsberg.SC2Replay
+starcraft_replays/Nightshade LE (2).SC2Replay
+starcraft_replays/Nightshade LE (3).SC2Replay
+starcraft_replays/Nightshade LE (4).SC2Replay
+starcraft_replays/Nightshade LE (5).SC2Replay
+starcraft_replays/Nightshade LE (6).SC2Replay
+starcraft_replays/Nightshade LE (7).SC2Replay
+starcraft_replays/Nightshade LE (8).SC2Replay
+starcraft_replays/Nightshade LE (9).SC2Replay
+starcraft_replays/Nightshade LE (10).SC2Replay
+starcraft_replays/Nightshade LE (11).SC2Replay
+starcraft_replays/Nightshade LE (12).SC2Replay
+starcraft_replays/Nightshade LE (13).SC2Replay
+starcraft_replays/Nightshade LE (14).SC2Replay
+starcraft_replays/Nightshade LE (15).SC2Replay
+starcraft_replays/Nightshade LE (16).SC2Replay
+starcraft_replays/Nightshade LE (17).SC2Replay
+starcraft_replays/Nightshade LE (18).SC2Replay
+starcraft_replays/Nightshade LE (19).SC2Replay
+starcraft_replays/Nightshade LE (20).SC2Replay
+starcraft_replays/Nightshade LE (21).SC2Replay
+starcraft_replays/Nightshade LE (22).SC2Replay
+starcraft_replays/Nightshade LE (23).SC2Replay
+starcraft_replays/Nightshade LE.SC2Replay
+starcraft_replays/Novice Discord IV (1).SC2Replay
+starcraft_replays/Novice Discord IV.SC2Replay
+starcraft_replays/Novice Kulas Ravine.SC2Replay
+starcraft_replays/Novice Steppes of War (2).SC2Replay
+starcraft_replays/Novice Steppes of War.SC2Replay
+starcraft_replays/Novice Twilight Fortress (1).SC2Replay
+starcraft_replays/Novice Twilight Fortress (2).SC2Replay
+starcraft_replays/Novice Twilight Fortress.SC2Replay
+starcraft_replays/Odyssey LE (2).SC2Replay
+starcraft_replays/Odyssey LE.SC2Replay
+starcraft_replays/Old Estate (2).SC2Replay
+starcraft_replays/Old Estate (3).SC2Replay
+starcraft_replays/Old Estate (4).SC2Replay
+starcraft_replays/Old Estate (5).SC2Replay
+starcraft_replays/Old Estate (6).SC2Replay
+starcraft_replays/Old Estate (7).SC2Replay
+starcraft_replays/Old Estate (8).SC2Replay
+starcraft_replays/Old Estate (14).SC2Replay
+starcraft_replays/Old Estate (15).SC2Replay
+starcraft_replays/Old Estate (16).SC2Replay
+starcraft_replays/Old Estate 2.SC2Replay
+starcraft_replays/Old Estate 3.SC2Replay
+starcraft_replays/Old Estate 4.SC2Replay
+starcraft_replays/Old Estate.SC2Replay
+starcraft_replays/Omicron.SC2Replay
+starcraft_replays/Outpost (1).SC2Replay
+starcraft_replays/Outpost (2).SC2Replay
+starcraft_replays/Outpost.SC2Replay
+starcraft_replays/Overgrowth LE.SC2Replay
+starcraft_replays/Purity and Industry LE (2).SC2Replay
+starcraft_replays/Purity and Industry LE (3).SC2Replay
+starcraft_replays/Purity and Industry LE (4).SC2Replay
+starcraft_replays/Purity and Industry LE (5).SC2Replay
+starcraft_replays/Purity and Industry LE (6).SC2Replay
+starcraft_replays/Purity and Industry LE (7).SC2Replay
+starcraft_replays/Purity and Industry LE (8).SC2Replay
+starcraft_replays/Purity and Industry LE (9).SC2Replay
+starcraft_replays/Purity and Industry LE (10).SC2Replay
+starcraft_replays/Purity and Industry LE (11).SC2Replay
+starcraft_replays/Purity and Industry LE (12).SC2Replay
+starcraft_replays/Purity and Industry LE (13).SC2Replay
+starcraft_replays/Purity and Industry LE (14).SC2Replay
+starcraft_replays/Purity and Industry LE (15).SC2Replay
+starcraft_replays/Purity and Industry LE (16).SC2Replay
+starcraft_replays/Purity and Industry LE (17).SC2Replay
+starcraft_replays/Purity and Industry LE (18).SC2Replay
+starcraft_replays/Purity and Industry LE (19).SC2Replay
+starcraft_replays/Purity and Industry LE (20).SC2Replay
+starcraft_replays/Purity and Industry LE (21).SC2Replay
+starcraft_replays/Purity and Industry LE (22).SC2Replay
+starcraft_replays/Purity and Industry LE (23).SC2Replay
+starcraft_replays/Purity and Industry LE.SC2Replay
+starcraft_replays/Redstorm.SC2Replay
+starcraft_replays/Refinery XJ-17.SC2Replay
+starcraft_replays/Refinery XJ17.SC2Replay
+starcraft_replays/Retribution LE (1).SC2Replay
+starcraft_replays/Retribution LE.SC2Replay
+starcraft_replays/Rhoskallian LE (2).SC2Replay
+starcraft_replays/Rhoskallian LE.SC2Replay
+starcraft_replays/Rooftop Terrace (1).SC2Replay
+starcraft_replays/Rooftop Terrace (2).SC2Replay
+starcraft_replays/Rooftop Terrace (3).SC2Replay
+starcraft_replays/Rooftop Terrace 2.SC2Replay
+starcraft_replays/Rooftop Terrace 3.SC2Replay
+starcraft_replays/Rooftop Terrace.SC2Replay
+starcraft_replays/Rosebud LE (2).SC2Replay
+starcraft_replays/Rosebud LE.SC2Replay
+starcraft_replays/Sacred Grounds.SC2Replay
+starcraft_replays/Sands of Strife.SC2Replay
+starcraft_replays/Seeds of Aiur (1).SC2Replay
+starcraft_replays/Seeds of Aiur (2).SC2Replay
+starcraft_replays/Seeds of Aiur.SC2Replay
+starcraft_replays/Sentinel LE (1).SC2Replay
+starcraft_replays/Sentinel LE (2).SC2Replay
+starcraft_replays/Sentinel LE (3).SC2Replay
+starcraft_replays/Sentinel LE (4).SC2Replay
+starcraft_replays/Sentinel LE.SC2Replay
+starcraft_replays/Shadow Reactor (1).SC2Replay
+starcraft_replays/Shadow Reactor.SC2Replay
+starcraft_replays/Shipwrecked LE (1).SC2Replay
+starcraft_replays/Shipwrecked LE (3).SC2Replay
+starcraft_replays/Shipwrecked LE (4).SC2Replay
+starcraft_replays/Shipwrecked LE (5).SC2Replay
+starcraft_replays/Shipwrecked LE.SC2Replay
+starcraft_replays/Simulacrum LE (2).SC2Replay
+starcraft_replays/Simulacrum LE (3).SC2Replay
+starcraft_replays/Simulacrum LE (4).SC2Replay
+starcraft_replays/Simulacrum LE (5).SC2Replay
+starcraft_replays/Simulacrum LE (6).SC2Replay
+starcraft_replays/Simulacrum LE (7).SC2Replay
+starcraft_replays/Simulacrum LE (8).SC2Replay
+starcraft_replays/Simulacrum LE (9).SC2Replay
+starcraft_replays/Simulacrum LE (10).SC2Replay
+starcraft_replays/Simulacrum LE (11).SC2Replay
+starcraft_replays/Simulacrum LE (12).SC2Replay
+starcraft_replays/Simulacrum LE (13).SC2Replay
+starcraft_replays/Simulacrum LE (14).SC2Replay
+starcraft_replays/Simulacrum LE (15).SC2Replay
+starcraft_replays/Simulacrum LE (16).SC2Replay
+starcraft_replays/Simulacrum LE (17).SC2Replay
+starcraft_replays/Simulacrum LE (18).SC2Replay
+starcraft_replays/Simulacrum LE (19).SC2Replay
+starcraft_replays/Simulacrum LE.SC2Replay
+starcraft_replays/Snowbound Colony (1).SC2Replay
+starcraft_replays/Snowbound Colony (2).SC2Replay
+starcraft_replays/Snowbound Colony (3).SC2Replay
+starcraft_replays/Snowbound Colony (7).SC2Replay
+starcraft_replays/Snowbound Colony 2.SC2Replay
+starcraft_replays/Snowbound Colony 3.SC2Replay
+starcraft_replays/Snowbound Colony.SC2Replay
+starcraft_replays/Stranded Isles.SC2Replay
+starcraft_replays/Tectonic Rift (1).SC2Replay
+starcraft_replays/Tectonic Rift.SC2Replay
+starcraft_replays/Tempest (1).SC2Replay
+starcraft_replays/Tempest (3).SC2Replay
+starcraft_replays/Tempest 2.SC2Replay
+starcraft_replays/Tempest 3.SC2Replay
+starcraft_replays/Tempest Mod 2v2v2v2.SC2Replay
+starcraft_replays/Tempest.SC2Replay
+starcraft_replays/The Boneyard (1).SC2Replay
+starcraft_replays/The Boneyard.SC2Replay
+starcraft_replays/The Commune (1).SC2Replay
+starcraft_replays/The Commune.SC2Replay
+starcraft_replays/The Ruins of Tarsonis (1).SC2Replay
+starcraft_replays/The Ruins of Tarsonis.SC2Replay
+starcraft_replays/Toxic Slums (1).SC2Replay
+starcraft_replays/Toxic Slums (3).SC2Replay
+starcraft_replays/Toxic Slums.SC2Replay
+starcraft_replays/Troizinia LE (2).SC2Replay
+starcraft_replays/Troizinia LE (3).SC2Replay
+starcraft_replays/Troizinia LE (4).SC2Replay
+starcraft_replays/Troizinia LE (5).SC2Replay
+starcraft_replays/Troizinia LE.SC2Replay
+starcraft_replays/Tropic Shores (1).SC2Replay
+starcraft_replays/Tropic Shores (2).SC2Replay
+starcraft_replays/Tropic Shores (3).SC2Replay
+starcraft_replays/Tropic Shores (4).SC2Replay
+starcraft_replays/Tropic Shores (5).SC2Replay
+starcraft_replays/Tropic Shores (6).SC2Replay
+starcraft_replays/Tropic Shores 2.SC2Replay
+starcraft_replays/Tropic Shores.SC2Replay
+starcraft_replays/Twilight Fortress (1).SC2Replay
+starcraft_replays/Twilight Fortress (2).SC2Replay
+starcraft_replays/Twilight Fortress (3).SC2Replay
+starcraft_replays/Twilight Fortress (4).SC2Replay
+starcraft_replays/Twilight Fortress (5).SC2Replay
+starcraft_replays/Twilight Fortress (6).SC2Replay
+starcraft_replays/Twilight Fortress 2.SC2Replay
+starcraft_replays/Twilight Fortress 3.SC2Replay
+starcraft_replays/Twilight Fortress 4.SC2Replay
+starcraft_replays/Twilight Fortress 5.SC2Replay
+starcraft_replays/Twilight Fortress 6.SC2Replay
+starcraft_replays/Twilight Fortress 7.SC2Replay
+starcraft_replays/Twilight Fortress.SC2Replay
+starcraft_replays/Typhon (1).SC2Replay
+starcraft_replays/Typhon (2).SC2Replay
+starcraft_replays/Typhon (3).SC2Replay
+starcraft_replays/Typhon (5).SC2Replay
+starcraft_replays/Typhon (6).SC2Replay
+starcraft_replays/Typhon (7).SC2Replay
+starcraft_replays/Typhon (8).SC2Replay
+starcraft_replays/Typhon.SC2Replay
+starcraft_replays/Tyrador Keep.SC2Replay
+starcraft_replays/Ujari (2).SC2Replay
+starcraft_replays/Ujari.SC2Replay
+starcraft_replays/Void Training Stage 2.SC2Replay
+starcraft_replays/Void Training Stage 3 (2).SC2Replay
+starcraft_replays/Void Training Stage 3.SC2Replay
+starcraft_replays/Volcanic Ridge.SC2Replay
+starcraft_replays/Whitewater Line LE (1).SC2Replay
+starcraft_replays/Whitewater Line LE (2).SC2Replay
+starcraft_replays/Whitewater Line LE (4).SC2Replay
+starcraft_replays/Whitewater Line LE (5).SC2Replay
+starcraft_replays/Whitewater Line LE (6).SC2Replay
+starcraft_replays/Whitewater Line LE 2.SC2Replay
+starcraft_replays/Whitewater Line LE.SC2Replay
+starcraft_replays/Zen LE (2).SC2Replay
+starcraft_replays/Zen LE (3).SC2Replay
+starcraft_replays/Zen LE (4).SC2Replay
+starcraft_replays/Zen LE (5).SC2Replay
+starcraft_replays/Zen LE (6).SC2Replay
+starcraft_replays/Zen LE (7).SC2Replay
+starcraft_replays/Zen LE (8).SC2Replay
+starcraft_replays/Zen LE (9).SC2Replay
+starcraft_replays/Zen LE (10).SC2Replay
+starcraft_replays/Zen LE (11).SC2Replay
+starcraft_replays/Zen LE (12).SC2Replay
+starcraft_replays/Zen LE (13).SC2Replay
+starcraft_replays/Zen LE (14).SC2Replay
+starcraft_replays/Zen LE (15).SC2Replay
+starcraft_replays/Zen LE (16).SC2Replay
+starcraft_replays/Zen LE (17).SC2Replay
+starcraft_replays/Zen LE (18).SC2Replay
+starcraft_replays/Zen LE (19).SC2Replay
+starcraft_replays/Zen LE (20).SC2Replay
+starcraft_replays/Zen LE (21).SC2Replay
+starcraft_replays/Zen LE (22).SC2Replay
+starcraft_replays/Zen LE (23).SC2Replay
+starcraft_replays/Zen LE (24).SC2Replay
+starcraft_replays/Zen LE (25).SC2Replay
+starcraft_replays/Zen LE (26).SC2Replay
+starcraft_replays/Zen LE (27).SC2Replay
+starcraft_replays/Zen LE.SC2Replay
