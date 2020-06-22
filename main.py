@@ -15,6 +15,7 @@ import itertools
 from operator import itemgetter, attrgetter
 from datetime import datetime
 from pprint import pprint
+from pathlib import Path
 
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
@@ -52,7 +53,7 @@ ai_very_hard = Player("ai very hard")
 ai_elite = Player("ai elite")
 ai_insane = Player("ai insane")
 
-players = {
+humans = {
     "PRhumperdink": bo,
     "OldSock": kevin,
     "RyGuyChiGuy": ryan_s,
@@ -63,7 +64,9 @@ players = {
     "cdudeRising": colin,
     "coldpockets": laura,
     "FlankRight": george,
-    "RedOrm": ryan_k,
+    "RedOrm": ryan_k
+}
+computers = {
     "A.I. (Very Easy)": ai_very_easy,
     "A.I. (Easy)": ai_easy,
     "A.I. (Medium)": ai_medium,
@@ -73,6 +76,9 @@ players = {
     "A.I. (Elite)": ai_elite,
     "A.I. (Insane)": ai_insane
 }
+players = {}
+players.update(humans)
+players.update(computers)
 
 
 def main(argv):
@@ -228,60 +234,60 @@ def main(argv):
                                           player.play_race.lower())
                 player_race.current_trueskill = rating
 
-        history["steve"]["protoss"].append(steve.protoss)
-        history["steve"]["terran"].append(steve.terran)
-        history["steve"]["zerg"].append(steve.zerg)
-        history["ryan_s"]["protoss"].append(ryan_s.protoss)
-        history["ryan_s"]["terran"].append(ryan_s.terran)
-        history["ryan_s"]["zerg"].append(ryan_s.zerg)
-        history["kevin"]["protoss"].append(kevin.protoss)
-        history["kevin"]["terran"].append(kevin.terran)
-        history["kevin"]["zerg"].append(kevin.zerg)
-        history["stephen"]["protoss"].append(stephen.protoss)
-        history["stephen"]["terran"].append(stephen.terran)
-        history["stephen"]["zerg"].append(stephen.zerg)
-        history["laura"]["protoss"].append(laura.protoss)
-        history["laura"]["terran"].append(laura.terran)
-        history["laura"]["zerg"].append(laura.zerg)
-        history["j"]["protoss"].append(j.protoss)
-        history["j"]["terran"].append(j.terran)
-        history["j"]["zerg"].append(j.zerg)
-        history["colin"]["protoss"].append(colin.protoss)
-        history["colin"]["terran"].append(colin.terran)
-        history["colin"]["zerg"].append(colin.zerg)
-        history["bo"]["protoss"].append(bo.protoss)
-        history["bo"]["terran"].append(bo.terran)
-        history["bo"]["zerg"].append(bo.zerg)
-        history["george"]["protoss"].append(george.protoss)
-        history["george"]["terran"].append(george.terran)
-        history["george"]["zerg"].append(george.zerg)
-        history["ryan_k"]["protoss"].append(ryan_k.protoss)
-        history["ryan_k"]["terran"].append(ryan_k.terran)
-        history["ryan_k"]["zerg"].append(ryan_k.zerg)
-        history["ai_very_easy"]["protoss"].append(ai_very_easy.protoss)
-        history["ai_very_easy"]["terran"].append(ai_very_easy.terran)
-        history["ai_very_easy"]["zerg"].append(ai_very_easy.zerg)
-        history["ai_easy"]["protoss"].append(ai_easy.protoss)
-        history["ai_easy"]["terran"].append(ai_easy.terran)
-        history["ai_easy"]["zerg"].append(ai_easy.zerg)
-        history["ai_medium"]["protoss"].append(ai_medium.protoss)
-        history["ai_medium"]["terran"].append(ai_medium.terran)
-        history["ai_medium"]["zerg"].append(ai_medium.zerg)
-        history["ai_hard"]["protoss"].append(ai_hard.protoss)
-        history["ai_hard"]["terran"].append(ai_hard.terran)
-        history["ai_hard"]["zerg"].append(ai_hard.zerg)
-        history["ai_harder"]["protoss"].append(ai_harder.protoss)
-        history["ai_harder"]["terran"].append(ai_harder.terran)
-        history["ai_harder"]["zerg"].append(ai_harder.zerg)
-        history["ai_very_hard"]["protoss"].append(ai_very_hard.protoss)
-        history["ai_very_hard"]["terran"].append(ai_very_hard.terran)
-        history["ai_very_hard"]["zerg"].append(ai_very_hard.zerg)
-        history["ai_elite"]["protoss"].append(ai_elite.protoss)
-        history["ai_elite"]["terran"].append(ai_elite.terran)
-        history["ai_elite"]["zerg"].append(ai_elite.zerg)
-        history["ai_insane"]["protoss"].append(ai_insane.protoss)
-        history["ai_insane"]["terran"].append(ai_insane.terran)
-        history["ai_insane"]["zerg"].append(ai_insane.zerg)
+        history["steve"]["protoss"].append(steve.protoss.current_trueskill.mu)
+        history["steve"]["terran"].append(steve.terran.current_trueskill.mu)
+        history["steve"]["zerg"].append(steve.zerg.current_trueskill.mu)
+        history["ryan_s"]["protoss"].append(ryan_s.protoss.current_trueskill.mu)
+        history["ryan_s"]["terran"].append(ryan_s.terran.current_trueskill.mu)
+        history["ryan_s"]["zerg"].append(ryan_s.zerg.current_trueskill.mu)
+        history["kevin"]["protoss"].append(kevin.protoss.current_trueskill.mu)
+        history["kevin"]["terran"].append(kevin.terran.current_trueskill.mu)
+        history["kevin"]["zerg"].append(kevin.zerg.current_trueskill.mu)
+        history["stephen"]["protoss"].append(stephen.protoss.current_trueskill.mu)
+        history["stephen"]["terran"].append(stephen.terran.current_trueskill.mu)
+        history["stephen"]["zerg"].append(stephen.zerg.current_trueskill.mu)
+        history["laura"]["protoss"].append(laura.protoss.current_trueskill.mu)
+        history["laura"]["terran"].append(laura.terran.current_trueskill.mu)
+        history["laura"]["zerg"].append(laura.zerg.current_trueskill.mu)
+        history["j"]["protoss"].append(j.protoss.current_trueskill.mu)
+        history["j"]["terran"].append(j.terran.current_trueskill.mu)
+        history["j"]["zerg"].append(j.zerg.current_trueskill.mu)
+        history["colin"]["protoss"].append(colin.protoss.current_trueskill.mu)
+        history["colin"]["terran"].append(colin.terran.current_trueskill.mu)
+        history["colin"]["zerg"].append(colin.zerg.current_trueskill.mu)
+        history["bo"]["protoss"].append(bo.protoss.current_trueskill.mu)
+        history["bo"]["terran"].append(bo.terran.current_trueskill.mu)
+        history["bo"]["zerg"].append(bo.zerg.current_trueskill.mu)
+        history["george"]["protoss"].append(george.protoss.current_trueskill.mu)
+        history["george"]["terran"].append(george.terran.current_trueskill.mu)
+        history["george"]["zerg"].append(george.zerg.current_trueskill.mu)
+        history["ryan_k"]["protoss"].append(ryan_k.protoss.current_trueskill.mu)
+        history["ryan_k"]["terran"].append(ryan_k.terran.current_trueskill.mu)
+        history["ryan_k"]["zerg"].append(ryan_k.zerg.current_trueskill.mu)
+        history["ai_very_easy"]["protoss"].append(ai_very_easy.protoss.current_trueskill.mu)
+        history["ai_very_easy"]["terran"].append(ai_very_easy.terran.current_trueskill.mu)
+        history["ai_very_easy"]["zerg"].append(ai_very_easy.zerg.current_trueskill.mu)
+        history["ai_easy"]["protoss"].append(ai_easy.protoss.current_trueskill.mu)
+        history["ai_easy"]["terran"].append(ai_easy.terran.current_trueskill.mu)
+        history["ai_easy"]["zerg"].append(ai_easy.zerg.current_trueskill.mu)
+        history["ai_medium"]["protoss"].append(ai_medium.protoss.current_trueskill.mu)
+        history["ai_medium"]["terran"].append(ai_medium.terran.current_trueskill.mu)
+        history["ai_medium"]["zerg"].append(ai_medium.zerg.current_trueskill.mu)
+        history["ai_hard"]["protoss"].append(ai_hard.protoss.current_trueskill.mu)
+        history["ai_hard"]["terran"].append(ai_hard.terran.current_trueskill.mu)
+        history["ai_hard"]["zerg"].append(ai_hard.zerg.current_trueskill.mu)
+        history["ai_harder"]["protoss"].append(ai_harder.protoss.current_trueskill.mu)
+        history["ai_harder"]["terran"].append(ai_harder.terran.current_trueskill.mu)
+        history["ai_harder"]["zerg"].append(ai_harder.zerg.current_trueskill.mu)
+        history["ai_very_hard"]["protoss"].append(ai_very_hard.protoss.current_trueskill.mu)
+        history["ai_very_hard"]["terran"].append(ai_very_hard.terran.current_trueskill.mu)
+        history["ai_very_hard"]["zerg"].append(ai_very_hard.zerg.current_trueskill.mu)
+        history["ai_elite"]["protoss"].append(ai_elite.protoss.current_trueskill.mu)
+        history["ai_elite"]["terran"].append(ai_elite.terran.current_trueskill.mu)
+        history["ai_elite"]["zerg"].append(ai_elite.zerg.current_trueskill.mu)
+        history["ai_insane"]["protoss"].append(ai_insane.protoss.current_trueskill.mu)
+        history["ai_insane"]["terran"].append(ai_insane.terran.current_trueskill.mu)
+        history["ai_insane"]["zerg"].append(ai_insane.zerg.current_trueskill.mu)
 
     for player in history:
         ax_num = 0
@@ -296,7 +302,8 @@ def main(argv):
             ax.set_title(f"{player} as {race}")
             pprint(
                 f"{player} as {race} TrueSkill mu: {round(history[player][race][-1].current_trueskill.mu, 2)}, sigma: {round(history[player][race][-1].current_trueskill.sigma, 2)}")
-        fig.savefig(f"plots/{player.replace(' ', '_')}")
+        image_file = Path(f"plots/{player.replace(' ', '_')}")
+        fig.savefig(image_file)
 
     try:
         opts, args = getopt.getopt(argv, "", ["help",
